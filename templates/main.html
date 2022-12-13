@@ -10,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <title>Heart Disease</title>
+  <title>Prediksi Klien Home Credit</title>
 </head>
 <form action="{{ url_for('predict') }}" method="post">
 <body style="background-color: #F8F9F9;">
@@ -20,9 +20,9 @@
       <img src={{ url_for('static', filename="images/zenius-logo.png" ) }} height="20" width="auto">
     </div>
     <div style="text-align:center;">
-      <h1>Heart Disease</h1>
+      <h2>Home Credit Default Risk Prediction</h2>
       <hr>
-      <h5>Muhammad Fadhil Akmal B. Paloloang</h5>
+      <h5>Kelompok 10</h5>
     </div>
     <div>
       <img src={{ url_for('static', filename="images/kampus-merdeka.png" ) }} height="50" width="auto">
@@ -37,11 +37,11 @@
           <!-- <form action="/predict" method="post"> -->
             <!-- Input Jenis Kelamin -->
             <div class="mb-3">
-              <b><p class="mb-0">Sex</p></b>
-              <input class="form-check-input" name="Sex" type="radio" value="0" id="Y" required>
-              <label class="form-check-label mr-5" for="M">Male</label>
-              <input class="form-check-input" name="Sex" type="radio" value="1" id="N">
-              <label class="form-check-label" for="F">Female</label>
+              <b><p class="mb-0">Gender</p></b>
+              <input class="form-check-input" name="CODE_GENDER" type="radio" value="0" id="Y" required>
+              <label class="form-check-label mr-5" for="F">Female</label>
+              <input class="form-check-input" name="CODE_GENDER" type="radio" value="1" id="N">
+              <label class="form-check-label" for="M">Male</label>
             </div>
              
             <!-- <div class="mb-3">
@@ -56,55 +56,91 @@
 
             <!-- Input ChestPainType -->
             <div class="mb-3">
-              <b><label for="ChestPainType">Chest Pain Type</label></b>
-              <select class="form-select mb-3" name="ChestPainType" id="ChestPainType" required>
+              <b><label for="NAME_INCOME_TYPE">Income Type</label></b>
+              <select class="form-select mb-3" name="NAME_INCOME_TYPE" id="NAME_INCOME_TYPE" required>
                 <option value="" selected disabled>-- Select --</option>
-                <option value="0">Atypical Angina (ATA)</option>
-                <option value="1">Non-Anginal Pain (NAP)</option>
-                <option value="2">Asymptomatic (ASY)</option>
-                <option value="3">Typical Angina (TA)</option>
+                <option value="0">Commercial Associate</option>
+                <option value="1">Pensioner</option>
+                <option value="2">State servant</option>
+                <option value="3">Student</option>
+                <option value="4">Working</option>
               </select>
             </div>
             <!-- End of Input ChestPainType -->
+            <div class="mb-3">
+              <b><label for="NAME_EDUCATION_TYPE">Education Type</label></b>
+              <select class="form-select mb-3" name="NAME_EDUCATION_TYPE" id="NAME_EDUCATION_TYPE" required>
+                <option value="" selected disabled>-- Select --</option>
+                <option value="0">Academic Degree</option>
+                <option value="1">Higher Education</option>
+                <option value="2">Incomplete Higher</option>
+                <option value="3">Lower secondary</option>
+                <option value="4">Secondary / secondary special</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <b><label for="REGION_RATING_CLIENT">Region Rating Client</label></b>
+              <select class="form-select mb-3" name="REGION_RATING_CLIENT" id="REGION_RATING_CLIENT" required>
+                <option value="" selected disabled>-- Select --</option>
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <b><label for="REGION_RATING_CLIENT_W_CITY">Region Rating Client City</label></b>
+              <select class="form-select mb-3" name="REGION_RATING_CLIENT_W_CITY" id="REGION_RATING_CLIENT_W_CITY" required>
+                <option value="" selected disabled>-- Select --</option>
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+              </select>
+            </div>
 
+            <div class="mb-3">
+              <b><label for="DAYS_BIRTH" class="form-label">Year of Birth</label></b>
+              <input type="number" name="DAYS_BIRTH" class="form-control" id="DAYS_BIRTH" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="DAYS_EMPLOYED" class="form-label">Days Employed</label></b>
+              <input type="number" name="DAYS_EMPLOYED" class="form-control" id="DAYS_EMPLOYED" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="DAYS_CREDIT" class="form-label">Days Credit</label></b>
+              <input type="number" name="DAYS_CREDIT" class="form-control" id="DAYS_CREDIT" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="DAYS_ENDDATE_FACT" class="form-label">Days End Date Fact</label></b>
+              <input type="number" name="DAYS_ENDDATE_FACT" class="form-control" id="DAYS_ENDDATE_FACT" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="DAYS_CREDIT_UPDATE" class="form-label">Days Credit Update</label></b>
+              <input type="number" name="DAYS_CREDIT_UPDATE" class="form-control" id="DAYS_CREDIT_UPDATE" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="DAYS_CREDIT_ENDDATE" class="form-label">Days Credit End Date</label></b>
+              <input type="number" name="DAYS_CREDIT_ENDDATE" class="form-control" id="DAYS_CREDIT_ENDDATE" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="DAYS_LAST_PHONE_CHANGE" class="form-label">Days Last Phone Change</label></b>
+              <input type="number" name="DAYS_LAST_PHONE_CHANGE" class="form-control" id="DAYS_LAST_PHONE_CHANGE" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="CNT_PAYMENT" class="form-label">CNT Payment</label></b>
+              <input type="number" name="CNT_PAYMENT" class="form-control" id="CNT_PAYMENT" required>
+            </div>
             <!-- Input MaxHR -->
             <div class="mb-3">
-              <b><label for="MaxHR" class="form-label">Max HR</label></b>
-              <input type="number" name="MaxHR" class="form-control" id="MaxHR" required>
+              <b><label for="EXT_SOURCE_2" class="form-label">EXT Source 2</label></b>
+              <input type="number" name="EXT_SOURCE_2" step=0.1 class="form-control" id="EXT_SOURCE_2" required>
+            </div>
+            <div class="mb-3">
+              <b><label for="EXT_SOURCE_3" class="form-label">EXT Source 3</label></b>
+              <input type="number" name="EXT_SOURCE_3" step=0.1 class="form-control" id="EXT_SOURCE_3" required>
             </div>
             <!-- End of Input MaxHR -->
+            <!-- Input MaxHR -->
             
-            <!-- Input Oldpeak -->
-            <div class="mb-3">
-              <b><label for="Oldpeak" class="form-label">Oldpeak</label></b>
-              <input type="number" name="Oldpeak" class="form-control" id="Oldpeak" required>
-            </div>
-            <!-- End of Input Oldpeak -->
-            
-            <!-- Input ExerciseAngina -->
-            <div class="mb-3">
-              <b><label for="ExerciseAngina">Exercise Angina</label></b>
-              <select class="form-select mb-3" name="ExerciseAngina" id="ExerciseAngina" required>
-                <option value="" selected disabled>-- Select --</option>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-              </select>
-            </div>
-            <!-- End of Input ExerciseAngina -->
-
-
-            <!-- Input ST_Slope -->
-            <div class="mb-3">
-              <b><label for="ST_Slope">ST Slope</label></b>
-              <select class="form-select mb-3" name="ST_Slope" id="ST_Slope" required>
-                <option value="" selected disabled>-- Select --</option>
-                <option value="0">Upsloping</option>
-                <option value="1">Flat</option>
-                <option value="2">Downsloping</option>
-              </select>
-            </div>
-            <!-- End of Input ST_Slope -->
-
             <!-- Button Submit -->
             <div class="d-flex justify-content-end mt-5">
               <button type="submit" class="btn btn-success">Predict</button>
@@ -113,7 +149,7 @@
           <!-- </form> -->
         </div>
 
-        <div class="col-4 pt-5 px-2 card gx-3" style="background-color: #dea6ff;">
+        <div class="col-4 pt-5 px-2 card gx-3" style="background-color: #E2F6FF;">
           <u><h2 class="text-center">Results</h2></u>
           <br>
            <center><h4>{{ prediction_text }}</h4></center>
@@ -121,6 +157,7 @@
       </div>
     </div>
   </div>
+  
 
 </form>
 
@@ -132,3 +169,4 @@
 </body>
 
 </html>
+
